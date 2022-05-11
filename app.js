@@ -134,3 +134,11 @@ window.onload = () => getStudentInfo(createTableOfStudentsInfo);
 // table = {[{}]}.delete
 //students = []
 //student = {}.edit  place holders
+
+// const select = document.querySelector("#select");
+// const options = [...select.children];
+// select.addEventListener("change", function () {
+//   if (select.value === options[1].value) {
+//     console.log(options[1].value);
+//   }
+// });
