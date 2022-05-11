@@ -1,16 +1,147 @@
-.input-student {
-  /* border: 1px solid blue; */
-  background: rgb(217, 235, 190);
-  border:none;
-  margin:0px;
-  width:130px;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+
+  font-family: "Raleway", sans-serif;
 }
 
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+header {
+  height: 130px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(69, 165, 187);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo {
+  font-family: "Oleo Script Swash Caps", cursive;
+  font-size: 48px;
+  margin-right: 30px;
+}
+
+#searchInput {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 40px;
+  border: none;
+  border-right: 1px solid rgb(184, 183, 183);
+}
+
+#searchInput::placeholder {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+#select {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 40px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  border: none;
+}
+
+#resetBtn {
+  margin-left: 10px;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  transition: all 0.2s ease-in;
+}
+
+#resetBtn:hover {
+  cursor: pointer;
+  background: rgb(165, 218, 230);
+}
+
+/* table */
 td {
-  /* background: rgb(166, 235, 166); */
   margin: 0px;
+  max-width: 120px;
+  text-align: center;
 }
 
-table {
-  background:rgb(182, 236, 100);;
+.input-student {
+  /* background: rgb(217, 235, 190); */
+  border: none;
+  margin: 0px;
+  /* max-width: 130px; */
+  height: 20px;
+  max-width: 140px;
 }
+
+.input-student::placeholder {
+  color: black;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 16px;
+
+  width: 100%;
+}
+
+.table {
+  background: rgb(139, 209, 255);
+  /* width: 80%; */
+  width: 100%;
+}
+
+tr {
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+  background: rgb(200, 243, 253);
+}
+
+th {
+  padding: 7px;
+  background: rgb(139, 209, 255);
+}
+
+.btn {
+  width: 70px;
+  margin: 5px 10px;
+  border: none;
+  background: rgb(217, 235, 190);
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: all 0.2s ease-in;
+}
+
+.btn:hover {
+  background: rgb(110, 192, 255);
+}
+
+/* 
+@media (max-width: 1100px) {
+  tr {
+    font-size: 14px;
+  }
+} */
