@@ -1,0 +1,16 @@
+.input-student {
+  /* border: 1px solid blue; */
+  background: rgb(217, 235, 190);
+  border:none;
+  margin:0px;
+  width:130px;
+}
+
+td {
+  /* background: rgb(166, 235, 166); */
+  margin: 0px;
+}
+
+table {
+  background:rgb(182, 236, 100);;
+}
