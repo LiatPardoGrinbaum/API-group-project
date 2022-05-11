@@ -5,39 +5,39 @@ const table = document.querySelector(".table");
 async function getStudents() {
   const response = await fetch("https://capsules-asb6.herokuapp.com/api/teacher/mordi");
   const students = await response.json();
-  return students
+  return students;
 }
 
 async function getStudentUrl() {
-  const students = await getStudents()
-  return students.map(student => `https://capsules-asb6.herokuapp.com/api/user/${student.id}`)
+  const students = await getStudents();
+  return students.map((student) => `https://capsules-asb6.herokuapp.com/api/user/${student.id}`);
 }
 
 async function getStudentInfo(callback) {
-  const studentUrl = await getStudentUrl()
-  const requests = studentUrl.map(url => fetch(url))
-  const studentsInfo = await Promise.all(requests)
-    .then(responses => Promise.all(responses.map(r => r.json())))
+  const studentUrl = await getStudentUrl();
+  const requests = studentUrl.map((url) => fetch(url));
+  const studentsInfo = await Promise.all(requests).then((responses) => Promise.all(responses.map((r) => r.json())));
   callback(studentsInfo);
   buttonEvents()
   searchFilter()
 }
 
-const arr = ["id", "gender", "firstName", "lastName", "hobby", "age", "city", "capsule"]
+const arr = ["id", "gender", "firstName", "lastName", "hobby", "age", "city", "capsule"];
+const titlesArr = ["ID", "Gender", "First Name", "Last Name", "Hobby", "Age", "City", "Capsule"];
 function createTableOfStudentsInfo(studentInfo) {
   //create first row
-  const trFirst = document.createElement("tr")
-  arr.forEach((title) => {
-    const th = document.createElement("th")
-    th.textContent = title
-    trFirst.appendChild(th)
-  })
-  table.appendChild(trFirst)
+  const trFirst = document.createElement("tr");
+  titlesArr.forEach((title) => {
+    const th = document.createElement("th");
+    th.textContent = title;
+    trFirst.appendChild(th);
+  });
+  table.appendChild(trFirst);
   //create main table
   studentInfo.forEach((student, i) => {
-    const tr = document.createElement("tr")
-    tr.setAttribute("data-row", `${i + 1}`)
-    table.appendChild(tr)
+    const tr = document.createElement("tr");
+    tr.setAttribute("data-row", `${i + 1}`);
+    table.appendChild(tr);
     arr.forEach((key) => {
       const td = document.createElement("td")
       const input = document.createElement("input")
@@ -56,7 +56,9 @@ function createTableOfStudentsInfo(studentInfo) {
     cancelBtn.innerText = "Cancel";
     confirmBtn.innerText = "Confirm";
     editBtn.classList.add("editBtn")
+    editBtn.classList.add("btn");
     deleteBtn.classList.add("deleteBtn")
+    deleteBtn.classList.add("btn");
     cancelBtn.classList.add("cancelBtn", "hiddenBtn")
     confirmBtn.classList.add("confirmBtn", "hiddenBtn")
     tr.append(editBtn, cancelBtn, deleteBtn, confirmBtn)
@@ -160,7 +162,6 @@ function buttonEvents() {
 }
 
 function searchFilter() {
-
   const searchInput = document.querySelector("#searchInput");
   searchInput.addEventListener("keyup", function(event){ 
     const rows = [...table.children].slice(1)
