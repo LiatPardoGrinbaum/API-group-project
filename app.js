@@ -2,13 +2,6 @@ const page = document.querySelector(".page");
 const search = document.querySelector(".search-wrap");
 const table = document.querySelector(".table");
 
-//getting data from api: save it into an array with student object
-// getStudents:
-// get the array of students (object)
-// loop over the array and push data to new array
-
-//function drawTable: 
-//https://capsules-asb6.herokuapp.com/api/user/$%7Bstudent.id
 async function getStudents() {
   const response = await fetch("https://capsules-asb6.herokuapp.com/api/teacher/mordi");
   const students = await response.json();
@@ -51,7 +44,6 @@ function createTableOfStudentsInfo(studentInfo) {
       input.placeholder = student[key]
       input.disabled = "disabled"
       input.classList.add("input-student")
-      // td.textContent=student[key];
       td.appendChild(input)
       tr.appendChild(td)
     })
@@ -74,8 +66,6 @@ function editAndDelet() {
   })
   editBtn.forEach(clickedBtn => {
     clickedBtn.addEventListener("click", function () {
-      // console.log(clickedBtn.parentElement);
-      // const rowNumber = clickedBtn.parentElement.getAttribute("data-row");
       const row = clickedBtn.parentElement
       const rowChildren = [...row.children].slice(0, -2)
       rowChildren.forEach((tdChild) => {
@@ -83,7 +73,6 @@ function editAndDelet() {
         inputChild.disabled = false;
       })
       return rowChildren;
-      // inputChild.value = inputChild.placeholder\
     })
   })
 }
@@ -91,52 +80,20 @@ function editAndDelet() {
 function searchFilter() {
 
   const searchInput = document.querySelector("#searchInput");
-  searchInput.addEventListener("keyup", function(event){
-    
+  searchInput.addEventListener("keyup", function(event){ 
     const rows = [...table.children].slice(1)
     rows.forEach(row =>{
       
       const tdInclude=[...row.children].slice(0,-2).every((td)=>{
         return !td.firstElementChild.placeholder.includes(event.target.value)})
-  
+
       if (tdInclude) {
         row.style.display="none";
+      } else {
+        row.style.display = "";
       }
-
   })
-  if(event.target.value==="") {
-    rows.forEach(row=>{
-    row.style.display= ""
-  })} 
-      
-      
-    //  console.log(td.firstElementChild);
-
     })
   }
 
-
-
-
-  // searchInput.addEventListener("keyup", function (event) {
-  //   //fillter to the letters or numbers that typed
-  //   if (!row.innerText.includes(event.target.value)) {
-  //     row.style.display = "none";
-  //   }
-
-  // })
-
-// const searchInput = document.querySelector("#searchInput");
-// const selectSearch = document.querySelector("#select");
 window.onload = () => getStudentInfo(createTableOfStudentsInfo)
-// searchInput.addEventListener("keyup", function (event) {
-//   //fillter to the letters or numbers that typed
-//   // if(!tr.innerText.includes(event.target.value)){
-//   //   display:none
-//   // }
-
-// })
-
-// table = {[{}]}.delete
-//students = []
-//student = {}.edit  place holders
