@@ -41,7 +41,8 @@ function createTableOfStudentsInfo(studentInfo) {
     arr.forEach((key) => {
       const td = document.createElement("td")
       const input = document.createElement("input")
-      input.placeholder = student[key]
+      input.placeholder = student[key];
+      input.setAttribute("size", `${student[key].toString().length}`);
       input.disabled = "disabled"
       input.classList.add("input-student")
       td.appendChild(input)
@@ -52,15 +53,13 @@ function createTableOfStudentsInfo(studentInfo) {
     const cancelBtn = document.createElement("button")
     const confirmBtn = document.createElement("button")
     editBtn.innerText = "Edit";
+    editBtn.classList.add("btn", "editBtn");
     deleteBtn.innerText = "Delete";
+    deleteBtn.classList.add("btn", "deleteBtn");
     cancelBtn.innerText = "Cancel";
+    cancelBtn.classList.add("btn", "cancelBtn", "hiddenBtn")
     confirmBtn.innerText = "Confirm";
-    editBtn.classList.add("editBtn")
-    editBtn.classList.add("btn");
-    deleteBtn.classList.add("deleteBtn")
-    deleteBtn.classList.add("btn");
-    cancelBtn.classList.add("cancelBtn", "hiddenBtn")
-    confirmBtn.classList.add("confirmBtn", "hiddenBtn")
+    confirmBtn.classList.add("btn", "confirmBtn", "hiddenBtn")
     tr.append(editBtn, cancelBtn, deleteBtn, confirmBtn)
   })
 }
@@ -138,6 +137,7 @@ function addConfirmEvent(editBtns, cancelBtns, deleteBtns, confirmBtns) {
         const inputChild = tdChild.firstElementChild;
         if(inputChild.value !== "") {
           inputChild.placeholder = inputChild.value;
+          input.setAttribute("size", `${inputChild.value.length}`);
           inputChild.value = "";
         }
         inputChild.disabled = true;
