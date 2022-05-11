@@ -42,7 +42,7 @@ function createTableOfStudentsInfo(studentInfo) {
       const td = document.createElement("td")
       const input = document.createElement("input")
       input.placeholder = student[key];
-      input.setAttribute("size", `${student[key].toString().length}`);
+      // input.setAttribute("size", `${student[key].toString().length}`);
       input.disabled = "disabled"
       input.classList.add("input-student")
       td.appendChild(input)
@@ -137,7 +137,7 @@ function addConfirmEvent(editBtns, cancelBtns, deleteBtns, confirmBtns) {
         const inputChild = tdChild.firstElementChild;
         if(inputChild.value !== "") {
           inputChild.placeholder = inputChild.value;
-          input.setAttribute("size", `${inputChild.value.length}`);
+          // inputChild.setAttribute("size", `${inputChild.value.length}`);
           inputChild.value = "";
         }
         inputChild.disabled = true;
@@ -166,8 +166,7 @@ function searchFilter() {
   searchInput.addEventListener("keyup", function(event){ 
     const rows = [...table.children].slice(1)
     rows.forEach(row =>{
-      
-      const tdInclude=[...row.children].slice(0,-2).every((td)=>{
+      const tdInclude=[...row.children].slice(0,-4).every((td)=>{
         return !td.firstElementChild.placeholder.includes(event.target.value)})
 
       if (tdInclude) {
