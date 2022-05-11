@@ -5,13 +5,29 @@
   margin:0px;
   width:130px;
   color: #fff;
+  /* max-width: 140px; */
+  width: auto;
 }
 
 td {
   /* background: rgb(166, 235, 166); */
   margin: 0px;
+  width: auto;
 }
 
 table {
-  background:rgb(182, 236, 100);;
+  background:rgb(182, 236, 100);
+
+}
+
+.hiddenBtn {
+  display: none;
+}
+
+.input-student::placeholder { 
+  width: 100%;
+}
+
+tr {
+  width: auto;
 }
